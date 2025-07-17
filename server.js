@@ -137,5 +137,5 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-// Export for Vercel
-module.exports = app;
+const serverless = require('serverless-http');
+module.exports = serverless(app);
