@@ -54,6 +54,16 @@ const Contact = mongoose.model('Contact', ContactSchema);
 const Suggestion = mongoose.model('Suggestion', SuggestionSchema);
 const Visitor = mongoose.model('Visitor', VisitorSchema);
 
+// Root test endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    message: 'Portfolio Backend is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.status(200).json({ 
@@ -137,5 +147,5 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-const serverless = require('serverless-http');
-module.exports = serverless(app);
+// Export for Vercel
+module.exports = app;
