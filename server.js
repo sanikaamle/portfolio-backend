@@ -151,13 +151,13 @@ app.use("*", (req, res) => {
 if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
-    console.log(Server running on port ${PORT});
-    console.log(Environment: ${process.env.NODE_ENV || "development"});
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
   });
 } else {
   // For Vercel production
   console.log("Server configured for Vercel production");
-  console.log(Environment: ${process.env.NODE_ENV});
+  console.log(`Environment: ${process.env.NODE_ENV}`);
 }
 
 // Export for Vercel
